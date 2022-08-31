@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const conn = require("./db.js");
+const cookieParser = require("cookie-parser");
 const ejs = require("ejs");
 const router = require("./routes/pageRoute.js");
 const pageRoute = require("./routes/pageRoute.js");
@@ -29,6 +30,7 @@ app
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Route to index page
 app.use("/", pageRoute);
