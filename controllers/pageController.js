@@ -6,7 +6,8 @@ const getIndex = (req, res) => {
 
 const getRegister = (req, res) => {
   res.render("register", {
-    title: "Register",
+    title: "register",
+    link: "register",
   });
 };
 
