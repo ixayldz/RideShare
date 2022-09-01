@@ -7,6 +7,7 @@ const router = require("./routes/pageRoute.js");
 const pageRoute = require("./routes/pageRoute.js");
 const userRoute = require("./routes/userRoute.js");
 const bodyParser = require("body-parser");
+const { checkUser } = require("./middlewares/authMiddlewares.js");
 dotenv.config();
 
 // Connect to MongoDB
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Route to index page
+app.get("*", checkUser);
 app.use("/", pageRoute);
 app.use("/register", pageRoute);
 app.use("/login", pageRoute);

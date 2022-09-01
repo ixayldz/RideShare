@@ -18,9 +18,10 @@ const getLogin = (req, res) => {
 };
 
 const getLogout = (req, res) => {
-  res.render("logout", {
-    title: "Logout",
+  res.cookie("jwt", "", {
+    maxAge: 1,
   });
+  res.redirect("/");
 };
 
 module.exports = {
